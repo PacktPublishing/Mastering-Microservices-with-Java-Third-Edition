@@ -1,0 +1,26 @@
+<br><h3>Famous Gourmet Restaurants in Paris</h3>
+<br><br>
+<form class="nav form-inline">
+  <input type="search" #searchBox (keyup.enter)="searchRestaurants(searchBox.value)" class="form-control mr-sm-2" placeholder="Search Restaurants">
+  <button type="submit" class="btn btn-outline-success mr-sm-2" (click)="searchRestaurants(searchBox.value)">Go</button>
+</form>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>#Id</th>
+          <th>Name</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let restaurant of restaurants$">
+          <td>{{restaurant.id}}</td>
+          <td><a routerLink="/restaurants/{{restaurant.id}}">{{restaurant.name}}</a></td>
+          <td>{{restaurant.address}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

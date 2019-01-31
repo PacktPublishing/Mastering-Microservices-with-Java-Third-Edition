@@ -1,0 +1,5 @@
+## YAML Template.
+
+server:
+  port: 8000
+---

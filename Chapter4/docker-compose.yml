@@ -1,0 +1,16 @@
+version: '3'
+services:
+  restaurant-service:
+    image: localhost:5000/sourabhh/restaurant-service:PACKT-SNAPSHOT
+    ports:
+      - "8080:8080"
+
+  booking-service:
+    image: localhost:5000/sourabhh/booking-service:PACKT-SNAPSHOT
+    ports:
+      - "8081:8080"
+
+  user-service:
+    image: localhost:5000/sourabhh/user-service:PACKT-SNAPSHOT
+    ports:
+      - "8082:8080"

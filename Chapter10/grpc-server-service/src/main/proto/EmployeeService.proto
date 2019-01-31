@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package com.packtpub.mmj.grpc;
+option java_package = "com.packtpub.mmj.grpc.server";
+option java_multiple_files = true;
+option java_generic_services = true;
+
+message Employee {
+  int64 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  int64 deptId = 4;
+  double salary = 5;
+  message Address {
+    string houseNo = 1;
+    string street = 2;
+    string city = 4;
+    string state = 5;
+    string country = 6;
+  }
+  Address address = 6;
+}
+
+message EmployeeList {
+  repeated  Employee employees = 1;
+}
+
+message EmployeeId {
+  int64 id = 1;
+}
+
+message Empty {}
+
+message Response {
+  int64 code = 1;
+  string message = 2;
+}
+
+service EmployeeService {
+  rpc Create(Employee) returns (Response);
+  rpc List(Empty) returns (EmployeeList);
+  rpc Update(Employee) returns (Response);
+  rpc Delete(EmployeeId) returns (Response);
+}
+
+

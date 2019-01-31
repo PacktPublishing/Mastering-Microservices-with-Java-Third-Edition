@@ -1,0 +1,40 @@
+<div id="container">
+  <!-- BEGIN HEADER -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+    <a class="navbar-brand" href="#">Online Table Reservation System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" 
+      (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">      
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarText" class="collapse navbar-collapse" [collapse]=isCollapsed>
+      <ul class="navbar-nav mx-auto">
+        <li>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li>&nbsp;</li>
+        <li class="nav-item" *ngIf="this.rest.currentUser"><span class="navbar-text">Welcome {{this.rest.currentUser.name}}!&nbsp;&nbsp;&nbsp;</span></li>
+        <li class="nav-item" *ngIf="this.rest.currentUser"><button type="button" class="btn btn-danger" (click)="rest.logout()">Logout</button></li>
+        <li class="nav-item" *ngIf="!this.rest.currentUser"><a class="nav-link" href="/login">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- END HEADER -->
+
+  <div class="clearfix"></div>
+  <!-- BEGIN CONTAINER -->
+  <div id="content" class="container">
+    <!-- BEGIN CONTENT -->
+    <router-outlet></router-outlet>
+    <!-- END CONTENT -->
+  </div>
+  <!-- END CONTAINER -->
+
+  <!-- BEGIN FOOTER -->
+  <div class="page-footer">
+    <hr />
+    <div class="text-center"><small>&copy; 2019 Online Table Reservation System</small></div>
+  </div>
+  <!-- END FOOTER -->
+</div>

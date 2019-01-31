@@ -1,0 +1,79 @@
+# Spring properties
+spring:
+  application:
+    name: booking-service
+  messages:
+    fallback-to-system-locale: false
+  output:
+    ansi:
+      enabled: ALWAYS
+  cloud:
+    stream:
+      bindings:
+        bookingOrderOutput:
+          destination: amp.bookingOrdered
+          contentType: application/*+avro
+        billingInput:
+          destination: amp.billing
+          consumer:
+            resetOffsets: true
+            headerMode: raw
+          group: "billing-service"
+      schema:
+        avro:
+          schema-locations: classpath*:avro/bookingOrder.avsc
+      #          dynamicSchemaGenerationEnabled: true
+      kafka:
+        binder:
+          zkNodes: localhost:2181
+          brokers: localhost:9092
+
+# Discovery Server Access
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 3
+    leaseExpirationDurationInSeconds: 2
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+
+  client:
+    enabled: false
+    registryFetchIntervalSeconds: 5
+    instanceInfoReplicationIntervalSeconds: 5
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+    fetchRegistry: true
+
+# HTTP Server
+server:
+  port: 2223   # HTTP (Tomcat) port
+
+logging:
+  level:
+    com.codebullets.sagalib: DEBUG
+---
+# For deployment in Docker containers
+spring:
+  profiles: docker
+  # Added to fix -  java.lang.IllegalArgumentException: error at ::0 can't find referenced pointcut hystrixCommandAnnotationPointcut
+  aop:
+    auto: false
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    registryFetchIntervalSeconds: 5
+    instanceInfoReplicationIntervalSeconds: 5
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+      fetchRegistry: true
+      healthcheck:
+        enabled: true

@@ -1,0 +1,29 @@
+# Spring properties
+spring:
+  application:
+    name: billing-service
+  cloud:
+    stream:
+      bindings:
+        bookingOrderInput:
+          destination: amp.bookingOrdered
+          consumer:
+            resetOffsets: true
+            headerMode: raw
+          group: ${bookingConsumerGroup}
+      schema:
+        avro:
+          schema-locations: classpath*:avro/bookingOrder.avsc
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+
+bookingConsumerGroup: "booking-service"
+
+
+server:
+  port: 2229
+
+
+

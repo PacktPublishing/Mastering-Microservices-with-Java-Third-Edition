@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Restaurants</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{restaurant$.name}}</li>
+      </ol>
+    </nav>
+    <div class="bs-docs-section">
+      <h1 class="page-header">{{restaurant$.name}}</h1>
+      <div>
+        <strong>Address:</strong> {{restaurant$.address}}
+      </div>
+      <br><br>
+      <form>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-3">
+
+              <strong>Select
+                Date & Time for Booking:</strong>
+            </div>
+            <div class="col-auto">
+              <div class="input-group">
+                <input type="text" class="form-control" #datePicker="bsDatepicker"  bsDatepicker [(ngModel)]="bookingDate"
+                    [minDate]="minDate" [maxDate]="maxDate" name="bookingDate">
+                <div class="input-group-postpend">
+                  <button type="button" class="btn btn-default" (click)="datePicker.toggle()" [attr.aria-expanded]="datePicker.isOpen">
+                    <fa-icon [icon]="faCalendar"></fa-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <span style="display: table-cell; vertical-align: middle">
+                <timepicker [(ngModel)]="tm" name="tm"></timepicker>
+              </span>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-3">&nbsp;</div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-3"><button class="btn btn-primary" type="button" (click)="book()">Reserve</button></div>
+          </div>
+        </div>
+      </form><br><br>
+    </div>
+  </div>
+</div>

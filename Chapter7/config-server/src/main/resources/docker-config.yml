@@ -1,0 +1,7 @@
+FROM openjdk:11-jre
+MAINTAINER sourabhh
+EXPOSE 8888
+COPY maven /maven/
+CMD java -Dspring.profiles.active="docker" -jar \
+/maven/config-server.jar server \
+/maven/docker-config.yml

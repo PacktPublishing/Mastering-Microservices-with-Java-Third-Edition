@@ -1,0 +1,8 @@
+# Spring properties
+spring:
+  cloud:
+    discovery:
+      enabled: false
+
+
+
