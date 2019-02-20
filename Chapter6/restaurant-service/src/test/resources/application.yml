@@ -5,3 +5,8 @@ spring:
       enabled: false
   aop:
     auto: false
+
+    
+eureka:
+  client:
+    enabled: false
