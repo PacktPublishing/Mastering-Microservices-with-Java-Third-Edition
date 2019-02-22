@@ -1,0 +1,14 @@
+{
+ "type": "record",
+ "name": "BookingOrder",
+ "namespace": "com.packtpub.mmj.booking.domain.valueobject.avro",
+ "fields": [
+     { "name": "id", "type": "string" },
+     { "name": "name", "type": "string" },
+     { "name": "userId", "type": "string"},
+     { "name": "restaurantId", "type": "string"},
+     { "name": "tableId", "type": "string"},
+     { "name": "date", "type": ["null", "string"] },
+     { "name": "time", "type": ["null", "string"] }
+ ]
+}

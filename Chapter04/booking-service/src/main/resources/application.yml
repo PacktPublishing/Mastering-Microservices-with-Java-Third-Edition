@@ -1,0 +1,22 @@
+# Spring properties
+spring:
+  application:
+    name: booking-service  # Service registers under this name
+  messages:
+    fallback-to-system-locale: false
+
+# HTTP Server
+server:
+  port: 2223   # HTTP (Tomcat) port
+
+
+---
+# For deployment in Docker containers
+spring:
+  profiles: docker
+  # Added to fix -  java.lang.IllegalArgumentException: error at ::0 can't find referenced pointcut hystrixCommandAnnotationPointcut
+  aop:
+    auto: false
+
+server:
+  port: 8080

@@ -1,0 +1,38 @@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: 'env, refresh'
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master
+      server:
+        bootstrap: true
+  datasource:
+    continue-on-error: true
+    # schema: classpath:schema.sql
+    # data: classpath:data-config.sql
+    # url: jdbc:h2:mem:config
+    # driver-class-name: org.h2.Driver
+    # username: sa
+    # password:
+    initialize-mode: never
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+---
+spring:
+  profiles:
+    active: jdbc, docker
+
+

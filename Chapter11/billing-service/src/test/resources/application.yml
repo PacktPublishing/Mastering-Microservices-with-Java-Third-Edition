@@ -1,0 +1,20 @@
+# Spring properties
+spring:
+    cloud:
+        discovery:
+            enabled: false
+    aop:
+        auto: false
+#        config:
+#            enabled: false
+#            server:
+#                health:
+#                    enabled: false
+#
+#hystrix:
+#    command:
+#        default:
+#            circuitBreaker:
+#                enabled: false
+#            fallback:
+#                enabled: false

@@ -1,0 +1,56 @@
+#spring:
+#  cloud:
+#    config:
+#      server:
+#        default-label: jdbc
+#        bootstrap: true
+#        jdbc:
+#          sql: SELECT KEY, VALUE from PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?
+#          order: 1
+
+info:
+  component: Config Server
+
+# Discovery Server Access
+# Enable when you want to link it to eureka after adding proper dependencies and @EnableDiscoveryClient
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 3
+#    leaseExpirationDurationInSeconds: 2
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+#
+#  client:
+#    registryFetchIntervalSeconds: 5
+#    instanceInfoReplicationIntervalSeconds: 5
+#    initialInstanceInfoReplicationIntervalSeconds: 5
+#    serviceUrl:
+#      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:password@localhost:8761}/eureka/
+#    fetchRegistry: true
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.jdbc: DEBUG
+
+---
+
+# For deployment in Docker containers
+#spring:
+#  profiles: docker
+
+# Enable when you want to link it to eureka after adding proper dependencies and @EnableDiscoveryClient
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+#  client:
+#    registryFetchIntervalSeconds: 5
+#    instanceInfoReplicationIntervalSeconds: 5
+#    initialInstanceInfoReplicationIntervalSeconds: 5
+#    serviceUrl:
+#      defaultZone: http://eureka:8761/eureka/
+#      fetchRegistry: true
+#      healthcheck:
+#        enabled: true

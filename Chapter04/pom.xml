@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.packtpub.mmj</groupId>
+  <artifactId>11537_chapter4</artifactId>
+  <version>PACKT-SNAPSHOT</version>
+  <name>Chapter4</name>
+  <description>Master Microservices with Java 11, Chapter 4</description>
+  <packaging>pom</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.11</java.version>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.0.M4</version>
+  </parent>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Finchley.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>restaurant-service</module>
+    <module>user-service</module>
+    <module>booking-service</module>
+  </modules>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <!-- version>3.7.0</version-->
+        <configuration>
+          <release>11</release>
+          <source>1.11</source>
+          <target>1.11</target>
+          <executable>${JAVA_1_11_HOME}/bin/javac</executable>
+          <showDeprecation>true</showDeprecation>
+          <showWarnings>true</showWarnings>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>6.2</version> <!-- Use newer version of ASM -->
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- Added repository additionally as Finchley was not available in central repository -->
+  <repositories>
+    <repository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-snapshots</id>
+      <name>Spring Snapshots</name>
+      <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <name>Spring Milestones</name>
+      <url>https://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+</project>

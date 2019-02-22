@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <property name="spring.application.name" value="booking-service" scope="context"/>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [${spring.application.name:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] %highlight(%-5level) %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/${spring.application.name}.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>log/${spring.application.name}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <!-- <maxHistory>30</maxHistory>
+      <totalSizeCap>3GB</totalSizeCap> -->
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>100MB</maxFileSize>
+    </triggeringPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [${spring.application.name:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT" />
+  </root>
+
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+</configuration>
