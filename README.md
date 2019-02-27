@@ -1,6 +1,6 @@
 # Mastering Microservices with Java 11 - Third Edition
 
-<a href="https://www.packtpub.com/application-development/mastering-microservices-java-11-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781789530728 "><img src="https://d255esdrn735hr.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B11537_MockupCover.png" alt="Mastering Microservices with Java 11 - Third Edition" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/application-development/mastering-microservices-java-11-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781789530728 "><img src="https://www.packtpub.com/sites/default/files/B11537_1.png" alt="Mastering Microservices with Java 11 - Third Edition" height="256px" align="right"></a>https://www.packtpub.com/sites/default/files/B11537_1.png
 
 This is the code repository for [Mastering Microservices with Java 11 - Third Edition](https://www.packtpub.com/application-development/mastering-microservices-java-11-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781789530728), published by Packt.
 
