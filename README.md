@@ -38,18 +38,20 @@ This book is designed for Java developers who are familiar with microservice arc
 
 With the following software and hardware list you can run all code files present in the book (Chapter 2-13).
 ### Software and Hardware List
-| Chapter | Software required | OS required |
+| Sr. No. | Software required | OS required |
 | -------- | ------------------------------------ | ----------------------------------- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| 1 | Any Java based IDEs like Eclipse, Netbeans or IntelliJ IDEA Community Edition | Linux, Windows, or Mac |
+| 2 | JDK 11 | Linux, Windows, or Mac |
+| 3 | Maven | Linux, Windows, or Mac |
+| 4 | Gradle | Linux, Windows, or Mac |
+| 5 | Spring Cloud and Boot | Linux, Windows, or Mac |
+| 6 | Angular | Linux, Windows, or Mac |
+| 7 | Docker | Linux, Windows, or Mac |
+| 8 | RabbitMQ | Linux, Windows, or Mac |
+| 9 | Apache Kafka | Linux, Windows, or Mac |
+| 10 | Apache Avro 1.8.2 | Linux, Windows, or Mac |
+| 11 | npm 5.5.1 | Linux, Windows, or Mac |
+| 12 | Netflix Conductor | Linux, Windows, or Mac |
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://www.packtpub.com/sites/default/files/downloads/9781789530728_ColorImages.pdf).
 
