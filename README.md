@@ -1,8 +1,3 @@
-## $5 Tech Unlocked 2021!
-[Buy and download this product for only $5 on PacktPub.com](https://www.packtpub.com/)
------
-*The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
-
 # Mastering Microservices with Java - Third Edition
 
 <a href="https://www.packtpub.com/application-development/mastering-microservices-java-11-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781789530728 "><img src="https://www.packtpub.com/sites/default/files/B11537_1.png" alt="Mastering Microservices with Java 11 - Third Edition" height="256px" align="right"></a>
