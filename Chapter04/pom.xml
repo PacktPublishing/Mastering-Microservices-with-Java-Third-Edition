@@ -17,6 +17,8 @@
     <java.version>1.11</java.version>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <!--  You can add JAVA_1_11_HOME property here or in Maven settings.xml file with correct Java 11 home path -->
+    <!--    <JAVA_1_11_HOME>/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home</JAVA_1_11_HOME>-->
   </properties>
 
   <parent>
